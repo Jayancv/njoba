@@ -5,7 +5,7 @@ INSERT INTO  ad_type ( type_id ,  type_code ,  type_name ) VALUES (01000,'SECTOR
 INSERT INTO  ad_type ( type_id ,  type_code ,  type_name ) VALUES (10000,'VIDEO', 'Video Advertisments');
 
 INSERT INTO  souvenir ( souvenir_id ,  description ,  souvenir_code ,  souvenir_name ,  year , active ,  visibility )
-VALUES (1,'2020','2020','2020','2020',1,1);
+VALUES (1,'2020','2020','2020','2020',true,1);
 
 INSERT INTO  selling_unit ( unit_id ,  cost , price ,   remain_count ,  units )
 VALUES ( 1,500,1000,10,10);
