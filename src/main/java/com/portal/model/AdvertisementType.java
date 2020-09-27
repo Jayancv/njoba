@@ -45,4 +45,9 @@ public class AdvertisementType implements Serializable {
     @JsonIgnore
     private Set<Advertisement> advertisements;
 
+    public AdvertisementType(long id, String typeCode, String typeName) {
+        this.id = id;
+        this.typeCode = typeCode;
+        this.typeName = typeName;
+    }
 }
