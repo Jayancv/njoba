@@ -18,7 +18,8 @@ spring.datasource:
   username: neydwgvldkeree
   password: 6c813b103dce5017456eac3b411994408a4c781cca32d639cde9181b0fd11160
   initialization-mode: always
-  data: createSouvenirProducts.sql
+  data:
+    - classpath:createSouvenirProducts.sql
 
 ## Hibernate Properties
 # The SQL dialect makes Hibernate generate better SQL for the chosen database
