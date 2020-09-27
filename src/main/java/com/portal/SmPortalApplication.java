@@ -18,8 +18,7 @@ public class SmPortalApplication {
 	}
 
 	@Bean
-	CommandLineRunner runner(AdvertisementTypeService advertisementTypeService, SouvenirService souvenirService,
-							 SellingUnitService sellingUnitService, ProductTypeService productTypeService) {
+	CommandLineRunner runner(AdvertisementTypeService advertisementTypeService) {
 		return args -> {
 			advertisementTypeService.create(new AdvertisementType(00001,"BASIC", "Basic Advertisments"));
 
