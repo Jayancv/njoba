@@ -13,15 +13,16 @@
 #spring.datasource.url = jdbc:mysql://localhost:3306/HotelSystemDB?useSSL=false
 spring.datasource:
   driver: com.mysql.cj.jdbc.Driver
-  url: jdbc:mysql://localhost:3308/portal #jdbc:mysql://sm-portal-db.cbhkkpofzghu.us-east-1.rds.amazonaws.com:3306/portal?createDatabaseIfNotExist=true
-  username: root
-  password: root
+  url: jdbc:postgresql://ec2-54-165-164-38.compute-1.amazonaws.com:5432/dcbk5e66rqv2v4
+  #jdbc:mysql://localhost:3308/portal #jdbc:mysql://sm-portal-db.cbhkkpofzghu.us-east-1.rds.amazonaws.com:3306/portal?createDatabaseIfNotExist=true
+  username: neydwgvldkeree
+  password: 6c813b103dce5017456eac3b411994408a4c781cca32d639cde9181b0fd11160
 
 ## Hibernate Properties
 # The SQL dialect makes Hibernate generate better SQL for the chosen database
 # Hibernate ddl auto (create, create-drop, validate, update)
 spring.jpa:
-  properties.hibernate.dialect : org.hibernate.dialect.MySQL57Dialect #MySQL8Dialect #MySQL55Dialect #MySQL5Dialect #MySQLInnoDBDialect #MySQLMyISAMDialect #MySQL5InnoDBDialect
+  properties.hibernate.dialect : org.hibernate.dialect.PostgreSQLDialect #MySQL8Dialect #MySQL55Dialect #MySQL5Dialect #MySQLInnoDBDialect #MySQLMyISAMDialect #MySQL5InnoDBDialect
   hibernate.ddl-auto : create-drop #update #create-drop
 
 #Get Actuatr health
