@@ -34,7 +34,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="USER")
+@Table(name="AD_USER")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true, ignoreUnknown = true)
 public class User implements Serializable {
