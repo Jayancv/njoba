@@ -17,6 +17,8 @@ spring.datasource:
   #jdbc:mysql://localhost:3308/portal #jdbc:mysql://sm-portal-db.cbhkkpofzghu.us-east-1.rds.amazonaws.com:3306/portal?createDatabaseIfNotExist=true
   username: neydwgvldkeree
   password: 6c813b103dce5017456eac3b411994408a4c781cca32d639cde9181b0fd11160
+  initialization-mode: always
+  data: createSouvenirProducts.sql
 
 ## Hibernate Properties
 # The SQL dialect makes Hibernate generate better SQL for the chosen database
