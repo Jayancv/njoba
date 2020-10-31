@@ -7,12 +7,12 @@ INSERT INTO  ad_type ( type_id ,  type_code ,  type_name ) VALUES (10000,'VIDEO'
 INSERT INTO  souvenir ( souvenir_id ,  description ,  souvenir_code ,  souvenir_name ,  year , active ,  visibility )
 VALUES (1,'2020','2020','2020','2020',true,true);
 
-INSERT INTO  selling_unit ( unit_id ,  cost , price ,   remain_count ,  units )
-VALUES ( 1,500,1000,10,10);
-INSERT INTO  selling_unit ( unit_id ,  cost , price ,   remain_count ,  units )
-VALUES ( 2,1000,1500,15,15);
-INSERT INTO  selling_unit ( unit_id ,  cost , price ,   remain_count ,  units )
-VALUES ( 3,1000,1500,15,15);
+INSERT INTO  selling_unit ( unit_id ,  cost , price , sold_count, remain_count ,  units )
+VALUES ( 1,500,1000,0,10,10);
+INSERT INTO  selling_unit ( unit_id ,  cost , price , sold_count, remain_count ,  units )
+VALUES ( 2,1000,1500,0,15,15);
+INSERT INTO  selling_unit ( unit_id ,  cost , price , sold_count, remain_count ,  units )
+VALUES ( 3,1000,1500,0,15,15);
 
 INSERT INTO  product_type ( product_id ,  description ,  product_code ,  product_name ,  ad_type_id ,  selling_unit_id , souvenir_id )
 VALUES (1,'Black & White','BASCI_B&W','Black & White',00001,1,1);
