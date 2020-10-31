@@ -1,7 +1,7 @@
 package com.portal.specification;
 
 import com.portal.model.Advertisement;
-import com.portal.operationUtils.SearchCriteria;
+import com.portal.operationUtils.criteria.SearchCriteria;
 import com.portal.operationUtils.SearchOperation;
 import org.springframework.data.jpa.domain.Specification;
 

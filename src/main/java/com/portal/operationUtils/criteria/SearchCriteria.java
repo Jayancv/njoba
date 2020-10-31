@@ -1,5 +1,6 @@
-package com.portal.operationUtils;
+package com.portal.operationUtils.criteria;
 
+import com.portal.operationUtils.SearchOperation;
 import lombok.Data;
 
 import java.io.Serializable;

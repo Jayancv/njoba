@@ -1,4 +1,4 @@
-package com.portal.operationUtils;
+package com.portal.operationUtils.result;
 
 public class ProductTypeResult {
 

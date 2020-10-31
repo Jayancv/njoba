@@ -30,4 +30,13 @@ public class ProductTypeController {
         return productTypeService.getById(id);
     }
 
+    @PutMapping("/increase-unit-count/{id}")
+    public int update(@PathVariable(value = "id") long id, @Valid @RequestBody int count) {
+        return productTypeService.setSellingUnitCount(id, count, true);
+    }
+
+    @PutMapping("/update-unit-price/{id}")
+    public double update(@PathVariable(value = "id") long id, @Valid @RequestBody double price) {
+        return productTypeService.setSellingUnitPrice(id, price);
+    }
 }

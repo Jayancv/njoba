@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProductTypeServiceImpl implements ProductTypeService {
@@ -36,8 +35,18 @@ public class ProductTypeServiceImpl implements ProductTypeService {
     }
 
     @Override
+    public boolean checkUnitAvail(long id, int count) {
+        if (this.getById(id) != null) {
+            SellingUnit sellingUnit = this.getById(id).getSellingUnit();
+            //Check availability
+            return sellingUnit.getRemainCount() >= count;
+        }
+        return false;
+    }
+
+    @Override
     public boolean reduceUnitCount(long id, int count) {
-        if ( this.getById(id) != null) {
+        if (this.getById(id) != null && this.getById(id).getSellingUnit() != null) {
             SellingUnit sellingUnit = this.getById(id).getSellingUnit();
             if (sellingUnit.getRemainCount() >= count) {  //Check availability
                 sellingUnit.setRemainCount(sellingUnit.getRemainCount() - count);
@@ -46,5 +55,57 @@ public class ProductTypeServiceImpl implements ProductTypeService {
             }
         }
         return false;
+    }
+
+    @Override
+    public boolean revertUnitCount(long id, int count) {
+        if (this.getById(id) != null && this.getById(id).getSellingUnit() != null) {
+            SellingUnit sellingUnit = this.getById(id).getSellingUnit();
+            sellingUnit.setRemainCount(sellingUnit.getRemainCount() + count);
+            sellingUnitRepository.save(sellingUnit);
+            return true;
+
+        }
+        return false;
+    }
+
+    @Override
+    public boolean upSoldUnitCount(long id, int count) {
+        if (this.getById(id) != null && this.getById(id).getSellingUnit() != null) {
+            SellingUnit sellingUnit = this.getById(id).getSellingUnit();
+            sellingUnit.setSoldCount(sellingUnit.getSoldCount() + count);
+            sellingUnitRepository.save(sellingUnit);
+            return true;
+
+        }
+        return false;
+    }
+
+    @Override
+    public int setSellingUnitCount(long id, int count, boolean add) {
+        if (this.getById(id) != null && this.getById(id).getSellingUnit() != null) {
+            SellingUnit sellingUnit = this.getById(id).getSellingUnit();
+            if (add) {
+                count = count + sellingUnit.getRemainCount();
+            }
+            sellingUnit.setRemainCount(count);
+            sellingUnit.setUnits(count + sellingUnit.getSoldCount());
+            sellingUnitRepository.save(sellingUnit);
+            return count;
+
+        }
+        return -1;
+    }
+
+    @Override
+    public double setSellingUnitPrice(long id, double price) {
+        if (this.getById(id) != null && this.getById(id).getSellingUnit() != null) {
+            SellingUnit sellingUnit = this.getById(id).getSellingUnit();
+            sellingUnit.setPrice(price);
+            sellingUnitRepository.save(sellingUnit);
+            return price;
+
+        }
+        return -1;
     }
 }

@@ -1,8 +1,8 @@
 package com.portal.controller;
 
 import com.portal.model.Advertisement;
-import com.portal.operationUtils.AdSearchCriteria;
-import com.portal.operationUtils.AvailabilityResult;
+import com.portal.operationUtils.criteria.AdSearchCriteria;
+import com.portal.operationUtils.result.AvailabilityResult;
 import com.portal.service.SearchServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

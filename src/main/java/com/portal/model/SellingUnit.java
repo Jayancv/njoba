@@ -41,6 +41,9 @@ public class SellingUnit implements Serializable {
     @Getter @Setter	@Column(name = "remain_count", nullable = false)
     private int remainCount;
 
+    @Getter @Setter	@Column(name = "sold_count", nullable = false)
+    private int soldCount;
+
     @Getter @Setter	@Column(name = "created_at", nullable = true, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate

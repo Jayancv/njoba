@@ -1,11 +1,10 @@
 package com.portal.service;
 
-import com.portal.operationUtils.AdSearchCriteria;
+import com.portal.operationUtils.criteria.AdSearchCriteria;
 import com.portal.model.Advertisement;
-import com.portal.operationUtils.AvailabilityResult;
+import com.portal.operationUtils.result.AvailabilityResult;
 
 import java.util.List;
-import java.util.Map;
 
 public interface SearchService {
     /**

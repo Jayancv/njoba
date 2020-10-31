@@ -37,7 +37,16 @@ public class BasicAdvertisementServiceImpl implements BasicAdvertisementService 
 
         if (obj.getProductType() != null && productTypeService.reduceUnitCount(obj.getProductType().getId(), 1)) {
             obj.setAdCode(advertisementService.generateAdCode(obj.getUserAdvertisement()));
-            return basicAdvertisementRepository.save(obj);
+            BasicAdvertisement ad = null;
+            try {
+                ad = basicAdvertisementRepository.save(obj);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (ad != null && ad.getId() != null && !ad.getId().isEmpty()) { // reduce unit count after successfully saving advertisement
+                productTypeService.revertUnitCount(obj.getProductType().getId(), 1);
+            }
+            return ad;
         }
         return null;
     }
