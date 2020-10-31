@@ -27,7 +27,7 @@ spring.datasource:
 spring.jpa:
   properties.hibernate.dialect : org.hibernate.dialect.PostgreSQLDialect #MySQL8Dialect #MySQL55Dialect #MySQL5Dialect #MySQLInnoDBDialect #MySQLMyISAMDialect #MySQL5InnoDBDialect
   hibernate:
-    ddl-auto : update #create-drop
+    ddl-auto : create-drop
     show-sql : true
 #Get Actuatr health
 management:
