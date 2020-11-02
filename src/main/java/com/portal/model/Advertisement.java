@@ -58,8 +58,11 @@ public abstract class Advertisement implements Serializable {
 	@JoinColumn(name="user_advertisement", nullable = true)
 	private User userAdvertisement;
 
-    @Getter @Setter	@Column(name = "org_id", nullable = false)
+    @Getter @Setter	@Column(name = "org_id", nullable = true)
     private long orgId ;
+
+    @Getter @Setter	@Column(name = "org_name", nullable = true)
+    private String orgName ;
 
     @Getter @Setter	@Column(name = "contact_no", nullable = false)
     private String contactNo;

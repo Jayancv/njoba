@@ -44,7 +44,10 @@ public class BasicAdvertisementServiceImpl implements BasicAdvertisementService 
                 e.printStackTrace();
             }
             if (ad != null && ad.getId() != null && !ad.getId().isEmpty()) { // reduce unit count after successfully saving advertisement
+                productTypeService.upSoldUnitCount(obj.getProductType().getId(), 1);
+            } else {
                 productTypeService.revertUnitCount(obj.getProductType().getId(), 1);
+
             }
             return ad;
         }
