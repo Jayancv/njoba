@@ -45,6 +45,7 @@ public class AdVersion implements Serializable {
     private Advertisement advertisement;
 
 
+    // Use this status to maintain is this adVersion is active, hold or inactive
     @Getter @Setter
     @Column(name = "status", nullable = false)
     private int status;
@@ -55,6 +56,14 @@ public class AdVersion implements Serializable {
     @Getter @Setter
     @Column(name = "content_url", nullable = true)
     private String contentUrl;
+
+
+    @Getter
+    @Setter //@JsonManagedReference(value = "sellingUnit_product")
+    @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "contentFile"})
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "content_file_id", nullable = false)
+    private DBFile contentFile;
 
     @Getter @Setter
     @Column(name = "comment", nullable = true)
@@ -72,6 +81,7 @@ public class AdVersion implements Serializable {
     @LastModifiedDate
     private Date updatedAt;
 
+    // Use this to maintain process status of ad version {Not yet edit, Editing complete, waiting for feedback ... }
     @Getter  @Setter
     @Column(name = "status_code", nullable = true)
     private boolean statusCode = true;

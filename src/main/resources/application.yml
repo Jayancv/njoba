@@ -44,3 +44,10 @@ server:
 spring:
   jackson:
     date-format: YYYY-MM-dd'T'HH:mm:ss:SSS'Z'
+
+## MULTIPART (MultipartProperties)
+spring.servlet.multipart:
+  enabled: true
+  file-size-threshold: 2KB
+  max-file-size: 150MB
+  max-request-size: 150MB
