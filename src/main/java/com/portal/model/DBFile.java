@@ -21,6 +21,7 @@ public class DBFile {
 
     private String fileType;
 
+    @Basic(fetch=FetchType.LAZY)
     @Lob
     private byte[] data;
 
