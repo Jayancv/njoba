@@ -10,6 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "files")
+@JsonIgnoreProperties(value = {"data"})
 public class DBFile {
     @Id
     @GeneratedValue(generator = "uuid")
@@ -25,8 +26,8 @@ public class DBFile {
 
     @Getter
     @Setter //@JsonBackReference(value = "sellingUnit_product")
-    @OneToOne(mappedBy="contentFile", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = "contentFile",allowSetters = true)
+    @OneToOne(mappedBy = "contentFile", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = "contentFile", allowSetters = true)
     private AdVersion adVersion;
 
     public DBFile() {
