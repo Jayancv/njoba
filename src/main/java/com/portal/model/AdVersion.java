@@ -57,13 +57,16 @@ public class AdVersion implements Serializable {
     @Column(name = "content_url", nullable = true)
     private String contentUrl;
 
+    @Getter @Setter
+    @Column(name = "content_id", nullable = true)
+    private String contentId;
 
-    @Getter
-    @Setter //@JsonManagedReference(value = "sellingUnit_product")
-    @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "contentFile"})
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "content_file_id", nullable = false)
-    private DBFile contentFile;
+//    @Getter
+//    @Setter //@JsonManagedReference(value = "sellingUnit_product")
+//    @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "contentFile"})
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "content_file_id", nullable = false)
+//    private DBFile contentFile;
 
     @Getter @Setter
     @Column(name = "comment", nullable = true)

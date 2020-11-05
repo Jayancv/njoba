@@ -25,11 +25,11 @@ public class DBFile {
     @Lob
     private byte[] data;
 
-    @Getter
-    @Setter //@JsonBackReference(value = "sellingUnit_product")
-    @OneToOne(mappedBy = "contentFile", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = "contentFile", allowSetters = true)
-    private AdVersion adVersion;
+//    @Getter
+//    @Setter //@JsonBackReference(value = "sellingUnit_product")
+//    @OneToOne(mappedBy = "contentFile", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+//    @JsonIgnoreProperties(value = "contentFile", allowSetters = true)
+//    private AdVersion adVersion;
 
     public DBFile() {
 
