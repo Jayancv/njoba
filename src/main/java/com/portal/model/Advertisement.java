@@ -34,6 +34,7 @@ import java.util.Set;
 @Table(name="ADVERTISEMENT")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true, ignoreUnknown = true)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public abstract class Advertisement implements Serializable {
 
 
@@ -54,7 +55,7 @@ public abstract class Advertisement implements Serializable {
     @Getter @Setter	@Column(name = "ad_code", nullable = false)
     private String adCode;
     
-    @Getter @Setter @JsonBackReference @ManyToOne(fetch = FetchType.LAZY)
+    @Getter @Setter @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="user_advertisement", nullable = true)
 	private User userAdvertisement;
 

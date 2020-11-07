@@ -118,7 +118,7 @@ public class User implements Serializable {
 	@OneToMany(mappedBy="teamCoordinator", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Set<Team> teamCoordinates;
 
-	@Getter @Setter @JsonManagedReference @OneToMany(mappedBy="userAdvertisement", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@Getter @Setter @OneToMany(mappedBy="userAdvertisement", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Set<Advertisement> advertisement;
 	
 	@Getter @Setter	@Column(name = "created_at", nullable = true, updatable = false)
