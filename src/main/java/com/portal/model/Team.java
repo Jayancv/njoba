@@ -57,7 +57,7 @@ public class Team implements Serializable {
 	@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "teamCoordinates"})
 	private User teamCoordinator;
 
-	@Getter @Setter @JsonManagedReference @OneToMany(mappedBy="userTeam", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@Getter @Setter @OneToMany(mappedBy="userTeam", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Set<User> teamMember;
 	
 	@Getter @Setter	@Column(name = "created_at", nullable = true, updatable = false)
