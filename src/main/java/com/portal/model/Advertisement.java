@@ -34,7 +34,7 @@ import java.util.Set;
 @Table(name="ADVERTISEMENT")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true, ignoreUnknown = true)
-@JsonIdentityInfo(scope = Advertisement.class, generator = ObjectIdGenerators.UUIDGenerator.class, property = "@UUID")
+@JsonIdentityInfo(scope = Advertisement.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public abstract class Advertisement implements Serializable {
 
 

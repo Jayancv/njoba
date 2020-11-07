@@ -28,7 +28,7 @@ import lombok.Setter;
 @Table(name="TEAM")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true, ignoreUnknown = true)
-@JsonIdentityInfo(scope = Team.class, generator = ObjectIdGenerators.UUIDGenerator.class, property = "@UUID")
+@JsonIdentityInfo(scope = Team.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Team implements Serializable {
 	
 	@Id @Getter @Setter	
