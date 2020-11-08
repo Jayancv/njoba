@@ -50,17 +50,17 @@ public class Team implements Serializable {
 	@Getter @Setter
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="team_leader", nullable = true)
-	@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "teamLeads"})
+	@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "teamLeads", "teamCoordinates", "userTeam"})
 	private User teamLeader;
 
 	@Getter @Setter
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="team_coordinator", nullable = true)
-	@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "teamCoordinates"})
+	@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "teamCoordinates", "teamLeads", "userTeam"})
 	private User teamCoordinator;
 
 	@Getter @Setter
-	@JsonIgnoreProperties(ignoreUnknown = true, value = {"hibernateLazyInitializer", "handler", "userTeam"}, allowSetters = true)
+	@JsonIgnoreProperties(ignoreUnknown = true, value = {"hibernateLazyInitializer", "handler", "teamCoordinates", "teamLeads", "userTeam"}, allowSetters = true)
 	@OneToMany(mappedBy="userTeam", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Set<User> teamMember;
 	
