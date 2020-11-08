@@ -104,18 +104,18 @@ public class User implements Serializable {
 	@Getter @Setter	@Column(name = "admission_year", nullable = true)
 	private int admissionYear  ;
 
-	@JsonIgnoreProperties(ignoreUnknown = true, value = {"hibernateLazyInitializer", "handler", "teamMembers", "teamCoordinator", "teamLeader"}, allowSetters = true)
+	@JsonIgnoreProperties(ignoreUnknown = true, value = {"hibernateLazyInitializer", "handler", "teamMember", "teamCoordinator", "teamLeader"}, allowSetters = true)
 	@Getter @Setter @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="user_team", nullable = true)
 	private Team userTeam;
 
 	@Getter @Setter
-	@JsonIgnoreProperties(ignoreUnknown = true, value = {"hibernateLazyInitializer", "handler", "teamMembers", "teamCoordinator", "teamLeader"}, allowSetters = true)
+	@JsonIgnoreProperties(ignoreUnknown = true, value = {"hibernateLazyInitializer", "handler", "teamMember", "teamCoordinator", "teamLeader"}, allowSetters = true)
 	@OneToMany(mappedBy="teamLeader", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Set<Team> teamLeads;
 
 	@Getter @Setter
-	@JsonIgnoreProperties(ignoreUnknown = true, value = {"hibernateLazyInitializer", "handler", "teamMembers", "teamCoordinator", "teamLeader"}, allowSetters = true)
+	@JsonIgnoreProperties(ignoreUnknown = true, value = {"hibernateLazyInitializer", "handler", "teamMember", "teamCoordinator", "teamLeader"}, allowSetters = true)
 	@OneToMany(mappedBy="teamCoordinator", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Set<Team> teamCoordinates;
 
