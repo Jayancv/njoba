@@ -104,7 +104,7 @@ public class User implements Serializable {
 	@Getter @Setter	@Column(name = "admission_year", nullable = true)
 	private int admissionYear  ;
 
-	@JsonIgnoreProperties(ignoreUnknown = true, value = {"hibernateLazyInitializer", "handler", "teamMember"}, allowSetters = true)
+	@JsonIgnoreProperties(ignoreUnknown = true, value = {"hibernateLazyInitializer", "handler", "teamMember", "teamCoordinator", "teamLeader"}, allowSetters = true)
 	@Getter @Setter @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="user_team", nullable = true)
 	private Team userTeam;
