@@ -60,7 +60,7 @@ public class SearchServiceImpl implements SearchService {
             spec.add(new SearchCriteria("orgId", criteria.getOrgId(), SearchOperation.EQUAL));
         }
         if (criteria.getCompanyName() != null && !criteria.getCompanyName().isEmpty()) {
-            spec.add(new SearchCriteria("companyName", criteria.getCompanyName(), SearchOperation.EQUAL));
+            spec.add(new SearchCriteria("orgName", criteria.getCompanyName(), SearchOperation.EQUAL));
         }
         if (criteria.getStatus() > 0) {
             spec.add(new SearchCriteria("status", criteria.getStatus(), SearchOperation.EQUAL));
@@ -154,7 +154,7 @@ public class SearchServiceImpl implements SearchService {
 
         if (availResult.getSouvenirResults().get(productType.getSouvenir().getId()) == null) {
             SouvenirResult souvResult = new SouvenirResult(productType.getSouvenir().getId(), productType.getSouvenir().getSouvenirCode(), productType.getSouvenir().getYear());
-            availResult.getSouvenirResults().put(productType.getAdvertisementType().getId(), souvResult);
+            availResult.getSouvenirResults().put(productType.getSouvenir().getId(), souvResult);
         }
         if (availResult.getSouvenirResults().get(productType.getSouvenir().getId()).getAdTypeResults().get(productType.getAdvertisementType().getId()) == null) {
             AdTypeResult typeResult = new AdTypeResult(productType.getAdvertisementType().getId(), productType.getAdvertisementType().getTypeCode());
