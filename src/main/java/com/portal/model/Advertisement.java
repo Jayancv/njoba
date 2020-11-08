@@ -34,7 +34,6 @@ import java.util.Set;
 @Table(name="ADVERTISEMENT")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true, ignoreUnknown = true)
-@JsonIdentityInfo(scope = Advertisement.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public abstract class Advertisement implements Serializable {
 
 
@@ -57,7 +56,7 @@ public abstract class Advertisement implements Serializable {
     
     @Getter @Setter @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="user_advertisement", nullable = true)
-    @JsonIgnoreProperties(ignoreUnknown = true, value = {"hibernateLazyInitializer", "handler", "advertisement"})
+    @JsonManagedReference
     private User userAdvertisement;
 
     @Getter @Setter	@Column(name = "org_id", nullable = true)
