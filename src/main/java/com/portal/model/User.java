@@ -35,7 +35,6 @@ import lombok.Setter;
 @Table(name="AD_USER")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true, ignoreUnknown = true)
-@JsonIdentityInfo(scope = User.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class User implements Serializable {
 
 	@Id @Getter @Setter 
@@ -111,10 +110,12 @@ public class User implements Serializable {
 	private Team userTeam;
 
 	@Getter @Setter
+	@JsonIgnore
 	@OneToMany(mappedBy="teamLeader", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Set<Team> teamLeads;
 
 	@Getter @Setter
+	@JsonIgnore
 	@OneToMany(mappedBy="teamCoordinator", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Set<Team> teamCoordinates;
 
