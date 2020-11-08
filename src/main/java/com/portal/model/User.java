@@ -110,7 +110,7 @@ public class User implements Serializable {
 	private Team userTeam;
 
 	@Getter @Setter
-	@JsonIgnore
+	@JsonIgnoreProperties(ignoreUnknown = true, value = {"hibernateLazyInitializer", "handler", "teamMember", "teamCoordinator", "teamLeader"}, allowSetters = true)
 	@OneToMany(mappedBy="teamLeader", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Set<Team> teamLeads;
 
@@ -120,7 +120,7 @@ public class User implements Serializable {
 	private Set<Team> teamCoordinates;
 
 	@Getter @Setter
-	@JsonIgnoreProperties(ignoreUnknown = true, value = {"hibernateLazyInitializer", "handler", "teamMember", "teamCoordinator", "teamLeader"}, allowSetters = true)
+	@JsonIgnore
 	@OneToMany(mappedBy="userAdvertisement", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Set<Advertisement> advertisement;
 	
