@@ -31,12 +31,12 @@ public class TeamServiceImpl implements TeamService{
 	@Override
 	public Team create(Team obj) {
 		Set<User> team_member = new HashSet<>();
-		for(User user : obj.getTeamMember()) {
+		for(User user : obj.getTeamMembers()) {
 			User dbObject = userRepository.findById(user.getId())
 		            .orElseThrow(() -> new ResourceNotFoundException("user", "id", user.getId()));
 			team_member.add(dbObject);
 		}
-		obj.setTeamMember(team_member);
+		obj.setTeamMembers(team_member);
 	    return teamRepsitory.save(obj);
 	}
 
