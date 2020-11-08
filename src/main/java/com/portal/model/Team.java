@@ -60,7 +60,7 @@ public class Team implements Serializable {
 	private User teamCoordinator;
 
 	@Getter @Setter @OneToMany(mappedBy="userTeam", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
-	private Set<User> teamMember;
+	private Set<User> teamMembers;
 	
 	@Getter @Setter	@Column(name = "created_at", nullable = true, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
