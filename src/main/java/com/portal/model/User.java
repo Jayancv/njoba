@@ -119,7 +119,7 @@ public class User implements Serializable {
 	private Set<Team> teamCoordinates;
 
 	@Getter @Setter
-	@JsonBackReference
+	@JsonIgnore
 	@OneToMany(mappedBy="userAdvertisement", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Set<Advertisement> advertisement;
 	

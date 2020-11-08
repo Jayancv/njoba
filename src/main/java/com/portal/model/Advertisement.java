@@ -56,7 +56,6 @@ public abstract class Advertisement implements Serializable {
     
     @Getter @Setter @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="user_advertisement", nullable = true)
-    @JsonManagedReference
     private User userAdvertisement;
 
     @Getter @Setter	@Column(name = "org_id", nullable = true)
